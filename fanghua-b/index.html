@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>芳華人生｜AI LINE 貼圖創作心得</title>
+<meta name="description" content="用 AI 把自己做成 LINE 貼圖：創作初心、歷程、成長與分享。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#FF8FB1; --pink-soft:#FFE0EA; --yellow:#FFE066; --yellow-soft:#FFF6C7;
+  --mint:#7EE8C7; --mint-soft:#D9FAEF; --ink:#4A2338; --white:#fff;
+  --font:"Noto Sans TC","Chiron Hei HK","PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:#FFF3F7;line-height:1.85;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:radial-gradient(var(--pink-soft) 2.5px,transparent 2.6px);background-size:34px 34px}
+img,video{max-width:100%;display:block}
+:focus-visible{outline:4px solid var(--ink);outline-offset:3px}
+
+/* 貼紙文字：白色描邊 */
+.sticker-text{color:var(--pink);font-weight:900;-webkit-text-stroke:10px var(--white);paint-order:stroke fill;text-shadow:0 6px 0 rgba(74,35,56,.18)}
+
+/* nav */
+nav{position:sticky;top:10px;z-index:20;width:fit-content;max-width:94vw;margin:10px auto 0;display:flex;gap:.4rem;padding:.4rem;background:var(--white);border-radius:99px;box-shadow:0 5px 0 var(--pink),0 10px 20px rgba(74,35,56,.12)}
+nav a{text-decoration:none;color:var(--ink);font-weight:700;padding:.3rem 1rem;border-radius:99px;transition:background .15s}
+nav a:nth-child(1):hover{background:var(--pink-soft)}
+nav a:nth-child(2):hover{background:var(--yellow-soft)}
+nav a:nth-child(3):hover{background:var(--mint-soft)}
+nav a:nth-child(4):hover{background:var(--pink-soft)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;max-width:1100px;margin:0 auto;padding:3rem 1.4rem 4rem}
+.hero h1{font-size:clamp(4rem,12vw,8rem);line-height:1.05;letter-spacing:.04em;transform:rotate(-3deg)}
+.tag{display:inline-block;margin-top:1.4rem;padding:.5rem 1.3rem;background:var(--yellow);border:5px solid var(--white);border-radius:99px;font-weight:900;font-size:1.15rem;box-shadow:0 5px 0 rgba(74,35,56,.2);transform:rotate(1.5deg)}
+.hero p.q{margin-top:1.4rem;max-width:30em;font-weight:500}
+.blob{position:relative;justify-self:center;width:min(86%,360px)}
+.blob img{width:100%;aspect-ratio:3/4.4;object-fit:cover;object-position:top;border:10px solid var(--white);border-radius:48% 52% 46% 54% / 38% 40% 60% 62%;box-shadow:0 8px 0 var(--pink),0 18px 30px rgba(74,35,56,.2)}
+.blob b{position:absolute;font-size:2.4rem;filter:drop-shadow(0 3px 0 #fff)}
+.blob b:nth-of-type(1){top:-12px;left:-18px}
+.blob b:nth-of-type(2){bottom:20px;right:-22px;font-size:3rem}
+.blob b:nth-of-type(3){top:36%;left:-30px;font-size:1.8rem}
+
+/* 漂浮愛心 */
+.floaters{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.floaters i{position:absolute;bottom:-40px;font-style:normal;opacity:.55;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg)}}
+main,nav,.hero,footer{position:relative;z-index:1}
+
+/* 段落 */
+section{max-width:1100px;margin:0 auto;padding:3rem 1.4rem}
+.sec-title{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem}
+.badge{display:grid;place-items:center;width:4.4rem;height:4.4rem;border-radius:50%;border:5px solid var(--white);font-weight:900;font-size:1.5rem;box-shadow:0 5px 0 rgba(74,35,56,.2)}
+h2{font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.2}
+.lead{font-weight:700;font-size:1.2rem;margin:0 0 1.6rem .3rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.6rem}
+.card{background:var(--c);border:6px solid var(--white);border-radius:28px;padding:1.4rem 1.5rem;box-shadow:0 7px 0 rgba(74,35,56,.16);transform:rotate(var(--r,0deg));transition:transform .2s}
+.card:hover{transform:rotate(0) translateY(-4px)}
+.card h3{font-size:1.25rem;font-weight:900;margin-bottom:.4rem}
+.card ul{padding-left:1.2rem}
+.card li{margin:.3rem 0}
+.card.wide{grid-column:1/-1}
+.p{--c:var(--pink-soft)} .y{--c:var(--yellow-soft)} .m{--c:var(--mint-soft)}
+.cards .card:nth-child(odd){--r:-1.2deg} .cards .card:nth-child(even){--r:1.2deg}
+.words{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}
+.words span{padding:.1rem .9rem;border-radius:99px;background:var(--white);font-weight:700;border:3px solid var(--pink)}
+.words span:nth-child(3n+2){border-color:var(--mint)}
+.words span:nth-child(3n){border-color:var(--yellow)}
+
+/* 作品 */
+.shot{background:var(--white);border-radius:24px;padding:10px;box-shadow:0 7px 0 var(--pink),0 14px 24px rgba(74,35,56,.12);cursor:zoom-in;transition:transform .2s}
+.shot:hover{transform:translateY(-5px) rotate(-.8deg)}
+.shot img{border-radius:16px;width:100%}
+.shot figcaption{padding:.6rem .5rem .2rem;font-weight:500;text-align:center;font-size:.95rem}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem;align-items:start}
+.sub{font-size:1.5rem;font-weight:900;margin:3rem 0 1rem}
+.anim{display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:2rem;align-items:center;margin-top:2.2rem}
+.stage{aspect-ratio:1;background:var(--white);border:8px solid var(--yellow);border-radius:50%;display:grid;place-items:center;overflow:hidden;box-shadow:0 7px 0 rgba(74,35,56,.18)}
+.stage canvas,.stage img{width:100%;height:100%;object-fit:contain}
+.tabs{display:flex;gap:.6rem;margin:.9rem 0}
+.tabs button{font:900 1.05rem var(--font);padding:.5rem 1.4rem;border:4px solid var(--white);border-radius:99px;background:var(--mint-soft);color:var(--ink);cursor:pointer;box-shadow:0 4px 0 rgba(74,35,56,.2)}
+.tabs button[aria-pressed=true]{background:var(--pink);color:var(--white)}
+video{width:100%;max-height:70vh;border:8px solid var(--white);border-radius:22px;background:#000;box-shadow:0 7px 0 var(--mint)}
+.quote{margin:3rem auto 0;max-width:28em;text-align:center;padding:1.6rem 1.4rem;background:var(--yellow);border:6px solid var(--white);border-radius:36px;font-size:clamp(1.15rem,3vw,1.5rem);font-weight:900;box-shadow:0 7px 0 rgba(74,35,56,.18);transform:rotate(-1deg)}
+footer{text-align:center;padding:2.5rem 1rem 3rem;font-weight:700}
+
+#lb{position:fixed;inset:0;background:rgba(74,35,56,.88);display:none;place-items:center;z-index:50;padding:1rem;cursor:zoom-out}
+#lb.on{display:grid}
+#lb img{max-height:94vh;max-width:96vw;object-fit:contain;border:8px solid var(--white);border-radius:22px;background:#fff}
+
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:2rem}
+  .hero p.q{margin-inline:auto;text-align:left}
+  .anim{grid-template-columns:1fr}
+  .stage{width:min(86%,340px);margin:auto}
+  .sticker-text{-webkit-text-stroke-width:8px}
+}
+@media(prefers-reduced-motion:reduce){.floaters{display:none}html{scroll-behavior:auto}.card,.shot{transition:none}}
+</style>
+</head>
+<body>
+<div class="floaters" aria-hidden="true"></div>
+
+<nav aria-label="章節"><a href="#why">初心</a><a href="#how">歷程</a><a href="#growth">成長</a><a href="#story">故事</a></nav>
+
+<header class="hero">
+  <div>
+    <h1 class="sticker-text">芳華人生</h1>
+    <span class="tag">AI LINE 貼圖創作心得</span>
+    <p class="q">這次 AI LINE 貼圖創作，帶給我最大的收穫是什麼？<br>學會 AI，不只是學技術，更是找到一種把心意傳給身邊的人的新方式。</p>
+  </div>
+  <div class="blob">
+    <img src="images/photo-portrait.jpg" alt="手持手機展示自己製作的 LINE 貼圖，並比向螢幕">
+    <b aria-hidden="true">💖</b><b aria-hidden="true">✨</b><b aria-hidden="true">🎉</b>
+  </div>
+</header>
+
+<main>
+<!-- 01 -->
+<section id="why">
+  <div class="sec-title"><span class="badge" style="background:var(--pink);color:#fff">01</span><h2 class="sticker-text" style="color:var(--pink)">創作初心</h2></div>
+  <p class="lead">WHY｜為什麼想設計這組貼圖？</p>
+  <div class="cards">
+    <div class="card p">
+      <h3>🎀 角色選擇</h3>
+      <ul>
+        <li>主角就是我自己，貼圖名稱《芳華人生》。</li>
+        <li>朋友和家人每次使用，就像我在身邊陪著他們。</li>
+        <li>皇冠、珍珠耳環、亮片旗袍的 Q 版形象，是我想成為的樣子：自信、喜氣、閃閃發亮。</li>
+      </ul>
+    </div>
+    <div class="card y">
+      <h3>💬 主題發想</h3>
+      <p>選的都是生活中最常說的話，平常不一定說得出口，用貼圖傳達反而更自然。</p>
+      <div class="words"><span>愛你</span><span>恭喜</span><span>謝謝</span><span>加油</span><span>沒問題</span><span>辛苦了</span><span>太棒了</span><span>超愛你</span></div>
+    </div>
+    <div class="card m wide">
+      <h3>🌸 創作期待</h3>
+      <p>希望收到的人看到貼圖，心裡暖暖的；把關心、感謝與祝福，用有趣的方式傳出去。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section id="how">
+  <div class="sec-title"><span class="badge" style="background:var(--yellow)">02</span><h2 class="sticker-text" style="color:#F5B800">創作歷程</h2></div>
+  <p class="lead">HOW｜從一個想法到一組會動的貼圖。</p>
+  <div class="cards">
+    <div class="card y">
+      <h3>🛠️ 創作過程</h3>
+      <ul>
+        <li><b>靜態貼圖：</b>用 AI 產生 Q 版角色，統一髮型、服裝與配件，再加上文字與表情。</li>
+        <li><b>動態貼圖：</b>同一角色做出連續動作的分格圖，背景用綠幕，方便後製去背。</li>
+        <li><b>全螢幕貼圖：</b>加大畫面與特效，讓貼圖更有氣勢。</li>
+        <li><b>上架申請：</b>上傳到 LINE Creators Market，通過審核後自動開賣。</li>
+      </ul>
+    </div>
+    <div class="card m">
+      <h3>💪 挑戰突破</h3>
+      <ul>
+        <li>AI 每次畫的臉和服裝不完全一樣：用同一組描述與參考圖反覆調整，鎖定角色一致性。</li>
+        <li>文字與構圖容易歪：圖與文字分開處理，再合成。</li>
+        <li>去背與規格：用綠幕背景，再依 LINE 規格輸出。</li>
+      </ul>
+    </div>
+    <div class="card p wide">
+      <h3>🎞️ 印象深刻：動態貼圖</h3>
+      <p>一張圖要拆成十二格，每格的動作與特效都要連貫才能「動」起來。看到彩帶與愛心真的在手機上飄起來，成就感最大。</p>
+    </div>
+  </div>
+
+  <div class="anim">
+    <div class="stage" id="stage" aria-live="polite"></div>
+    <div>
+      <h3 style="font-size:1.5rem;font-weight:900">動態貼圖，12 格一次看</h3>
+      <p>左邊是把綠幕去掉後的播放效果，下方是我實際使用的分格原圖。</p>
+      <div class="tabs" role="group" aria-label="切換動態貼圖">
+        <button type="button" data-s="images/sticker-celebrate.jpg" aria-pressed="true">🎉 恭喜</button>
+        <button type="button" data-s="images/sticker-heart.jpg" aria-pressed="false">💖 愛你</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pair" style="margin-top:2rem">
+    <figure class="shot"><img src="images/sticker-celebrate.jpg" alt="恭喜動態貼圖的 12 格分鏡" loading="lazy"><figcaption>分格原圖：恭喜（拉炮與彩帶）</figcaption></figure>
+    <figure class="shot"><img src="images/sticker-heart.jpg" alt="愛你動態貼圖的 12 格分鏡" loading="lazy"><figcaption>分格原圖：愛你（愛心由少變多）</figcaption></figure>
+  </div>
+
+  <h3 class="sub">🌟 成果展示：靜態貼圖牆</h3>
+  <figure class="shot"><img src="images/sticker-static.jpg" alt="八張靜態貼圖：愛你、恭喜、謝謝、加油、沒問題、辛苦了、太棒了、超愛你" loading="lazy"><figcaption>最滿意的是「愛你」與「恭喜」：白色貼紙描邊、粗體大字、表情誇張可愛，一眼就懂。</figcaption></figure>
+
+  <div class="pair" style="margin-top:2rem">
+    <figure class="shot"><img src="images/review-status.jpg" alt="LINE Creators Market 的《芳華人生》審核畫面，十六張貼圖" loading="lazy"><figcaption>第一版《芳華人生》送審畫面（等待審核）</figcaption></figure>
+    <div>
+      <h3 class="sub" style="margin-top:0">🎬 成果影片</h3>
+      <video controls preload="metadata" playsinline><source src="videos/demo.mp4" type="video/mp4">你的瀏覽器不支援影片播放。</video>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section id="growth">
+  <div class="sec-title"><span class="badge" style="background:var(--mint)">03</span><h2 class="sticker-text" style="color:#2FC9A0">學習與成長</h2></div>
+  <p class="lead">GROWTH｜從不熟悉到完成作品，我學會了什麼？</p>
+  <div class="cards">
+    <div class="card m">
+      <h3>🧰 技能成長</h3>
+      <ul>
+        <li>學會寫提示詞，把腦中的想法說清楚，AI 才畫得準。</li>
+        <li>學會角色一致性、表情與動作的設計。</li>
+        <li>學會動態貼圖分格、綠幕去背與 LINE 上架流程。</li>
+      </ul>
+    </div>
+    <div class="card p">
+      <h3>💡 思考改變</h3>
+      <p>AI 不是按一下就完成，而是要反覆溝通、修正，像跟夥伴合作。指令越清楚，成果越好；AI 是幫手，創意與決定權還是在我。</p>
+    </div>
+    <div class="card y">
+      <h3>🚀 自我突破</h3>
+      <p>最有成就感的是真的做出屬於自己的貼圖，而且已經送出審核。以前覺得這是設計師的事，現在我也做得到。</p>
+    </div>
+    <div class="card m">
+      <h3>🌈 未來應用</h3>
+      <ul>
+        <li>活動邀請卡、海報、節慶祝福圖。</li>
+        <li>為團體、社區、家人製作專屬貼圖或頭像。</li>
+        <li>工作簡報、教學素材、社群貼文與影片。</li>
+        <li>教其他人，把技能分享出去。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section id="story">
+  <div class="sec-title"><span class="badge" style="background:var(--pink);color:#fff">04</span><h2 class="sticker-text" style="color:var(--pink)">分享與感動</h2></div>
+  <p class="lead">STORY｜當貼圖走進生活，發生了什麼故事？</p>
+  <div class="cards">
+    <div class="card p">
+      <h3>📣 作品分享</h3>
+      <p>第一次分享給家人朋友時，大家都驚訝地問：「這是妳自己做的嗎？」</p>
+    </div>
+    <div class="card y">
+      <h3>🏡 溫馨互動</h3>
+      <p>家人傳訊息時開始用我的貼圖回覆，一句「愛你」、一句「辛苦了」，對話變得更溫暖。</p>
+    </div>
+    <div class="card m">
+      <h3>💞 情感連結</h3>
+      <p>貼圖讓訊息多了笑聲，也更常主動關心彼此。看到我的形象出現在對話裡，就像我隨時在身邊。</p>
+    </div>
+    <div class="card p">
+      <h3>🌱 創作體悟</h3>
+      <p>科技不是冷冰冰的，用對了可以傳遞溫度。創作不分年齡，只要願意嘗試，就能做出屬於自己的作品。</p>
+    </div>
+  </div>
+  <figure class="shot" style="margin-top:2.2rem"><img src="images/photo-wide.jpg" alt="側身微笑，手持手機展示貼圖" loading="lazy"><figcaption>把自己做成貼圖，再親手送到身邊的人手上。</figcaption></figure>
+  <p class="quote">學會 AI，不只是學技術，<br>更是找到一種新的方式，把心意傳給身邊的人。</p>
+</section>
+</main>
+
+<footer>《芳華人生》AI LINE 貼圖創作心得 💖</footer>
+<div id="lb" role="dialog" aria-label="放大圖片"><img alt=""></div>
+
+<script>
+// 漂浮愛心與彩帶
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var box=document.querySelector('.floaters'), set=['💗','💖','⭐','🎀','✨','💛'];
+  for(var i=0;i<16;i++){
+    var s=document.createElement('i');
+    s.textContent=set[i%set.length];
+    s.style.left=Math.random()*100+'%';
+    s.style.fontSize=(16+Math.random()*22)+'px';
+    s.style.animationDuration=(14+Math.random()*14)+'s';
+    s.style.animationDelay=(-Math.random()*24)+'s';
+    box.appendChild(s);
+  }
+})();
+
+// 燈箱
+(function(){
+  var lb=document.getElementById('lb'), im=lb.querySelector('img');
+  document.querySelectorAll('.shot img').forEach(function(el){
+    el.addEventListener('click',function(){im.src=el.src;im.alt=el.alt;lb.classList.add('on')});
+  });
+  lb.addEventListener('click',function(){lb.classList.remove('on')});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+})();
+
+// 動態貼圖：4x3 分格圖去綠幕後循環播放（需在 GitHub Pages 網址下才會去背）
+(function(){
+  var stage=document.getElementById('stage'), btns=document.querySelectorAll('.tabs button');
+  var timer=null, COLS=4, ROWS=3, FPS=8;
+  function fallback(src){clearInterval(timer);stage.innerHTML='<img src="'+src+'" alt="動態貼圖分格圖">'}
+  function play(src){
+    clearInterval(timer);
+    var img=new Image();
+    img.onload=function(){
+      var cw=Math.floor(img.width/COLS), ch=Math.floor(img.height/ROWS), frames=[];
+      try{
+        for(var r=0;r<ROWS;r++)for(var c=0;c<COLS;c++){
+          var cv=document.createElement('canvas'); cv.width=cw; cv.height=ch;
+          var x=cv.getContext('2d'); x.drawImage(img,c*cw,r*ch,cw,ch,0,0,cw,ch);
+          var d=x.getImageData(0,0,cw,ch), p=d.data;
+          for(var i=0;i<p.length;i+=4){
+            var R=p[i],G=p[i+1],B=p[i+2];
+            if(G>140&&G>R*1.35&&G>B*1.35){p[i+3]=0}
+            else if(G>R&&G>B&&G>110){p[i+1]=Math.max(R,B)}
+          }
+          x.putImageData(d,0,0); frames.push(cv);
+        }
+      }catch(e){fallback(src);return}
+      var show=document.createElement('canvas'); show.width=cw; show.height=ch;
+      stage.innerHTML=''; stage.appendChild(show);
+      var sx=show.getContext('2d'), n=0;
+      function draw(){sx.clearRect(0,0,cw,ch);sx.drawImage(frames[n],0,0);n=(n+1)%frames.length}
+      draw(); timer=setInterval(draw,1000/FPS);
+    };
+    img.onerror=function(){fallback(src)};
+    img.src=src;
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(o){o.setAttribute('aria-pressed',o===b)});
+      play(b.dataset.s);
+    });
+  });
+  play(btns[0].dataset.s);
+})();
+</script>
+</body>
+</html>
