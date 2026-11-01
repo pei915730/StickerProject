@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>線上作品連結｜影音與影像設計整合應用</title>
+<meta name="description" content="影音與影像設計整合應用課程的 AI LINE 貼圖學生作品線上連結。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f2219;--panel:#17301f;--ink:#f5f1e6;--mut:#b4c2b4;--line:#32503c;--green:#3ddc84}
+*{box-sizing:border-box;margin:0}
+html{color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.7 "Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.wrap{max-width:1040px;margin:auto;padding:0 24px}
+header{padding:72px 0 44px}
+.course{color:var(--green);font-weight:700;letter-spacing:.06em}
+h1{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;line-height:1.2;margin-top:10px}
+ol{list-style:none;padding:0 0 72px}
+.row{display:grid;grid-template-columns:320px minmax(0,1fr);gap:32px;align-items:center;padding:28px 12px;border-top:1px solid var(--line);color:inherit;text-decoration:none;border-radius:6px;transition:background .16s}
+li:last-child .row{border-bottom:1px solid var(--line)}
+.row:hover{background:var(--panel)}
+.row:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.row img{display:block;width:100%;height:auto;aspect-ratio:8/5;object-fit:cover;object-position:top;border-radius:8px;background:var(--panel)}
+.who{color:var(--green);font-weight:700;font-size:.95rem}
+h2{font-size:1.5rem;font-weight:900;line-height:1.4;margin:2px 0 10px}
+.url{color:var(--mut);font-size:.92rem;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:3px}
+.row:hover .url{color:var(--ink)}
+footer{padding:0 0 32px;color:var(--mut);font-size:.9rem}
+@media(max-width:720px){.wrap{padding:0 16px}header{padding:44px 0 28px}.row{grid-template-columns:minmax(0,1fr);gap:16px;padding:24px 0}.row:hover{background:none}}
+@media(prefers-reduced-motion:reduce){.row{transition:none}}
+
+:root{--bg:#fffdf7;--ink:#244239;--mut:#596b61;--line:#dce8da;--panel:#f0f7e9;--card:#fff;--green:#26724f;--green-ink:#26724f}
+html{color-scheme:light}
+body{background:radial-gradient(ellipse at 95% 0%,#fff0bb 0,transparent 40%),var(--bg);font-size:18px}
+header{padding-top:48px}
+.school{font-size:24px;font-weight:900;color:#26724f;letter-spacing:.03em;margin-bottom:22px;display:block}
+.course{display:inline-block;background:#e6f2d9;color:#31563b;padding:6px 16px;border-radius:99px;font-size:16px;letter-spacing:.02em}
+h1{color:#244239;letter-spacing:-.03em}
+.intro{color:var(--mut);font-size:20px;max-width:650px;margin-top:20px;line-height:1.9}
+nav{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 30px}
+nav a{display:inline-block;padding:12px 22px;background:white;border:1px solid #c8dac9;border-radius:99px;color:#31563b;text-decoration:none;font-weight:700}
+nav a[aria-current]{background:#ffdf7d;border-color:#ffdf7d;color:#493b15}
+nav a:hover{background:#e6f2d9}
+a:focus-visible{outline:3px solid #26724f;outline-offset:5px}
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:16px}
+
+.wrap{max-width:1180px}
+ol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.row{height:100%;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0;border:1px solid var(--line);background:white;border-radius:22px;overflow:hidden;box-shadow:0 8px 28px #24423908}
+.row img{border-radius:0;aspect-ratio:8/5}
+.row>div{padding:26px}
+.row:hover{background:#f6faef}
+h2{font-size:24px;margin:8px 0 16px}
+.url{font-size:15px;text-decoration:none}
+.visit{display:block;margin-top:22px;color:#26724f;font-weight:700;font-size:18px}
+@media(max-width:720px){ol{grid-template-columns:1fr}.row{padding:0}.row:hover{background:#f6faef}.row>div{padding:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="school">30+ 大學 / 創作展覽室</span>
+    <div class="course">影音與影像設計整合應用</div>
+    <h1>把生活的精彩，<br>變成自己的貼圖。</h1><p class="intro">30+ 大學學生作品展｜用影像記錄自己，用創作分享心意。<br>一起欣賞四組 LINE 貼圖作品與背後的故事。</p>
+  </header>
+  <main><ol id="list"></ol></main>
+  <footer>30+ 大學｜影音與影像設計整合應用｜學生作品</footer>
+</div>
+<script>
+// 新增作品：把封面圖放進 thumbs，再於此加一筆
+const LINKS = [
+  { who:'Elsa',   title:'讓自己的笑容，成為傳遞溫暖的貼圖',   url:'https://pei915730.github.io/StickerProject/elsa-sticker-portfolio-editorial1/', thumb:'online-elsa-editorial.jpg' },
+  { who:'Elsa',   title:'AI 幫我畫出貼圖，貼圖幫我送出心意', url:'https://pei915730.github.io/StickerProject/elsa-sticker-site/',                 thumb:'online-elsa-site.jpg' },
+  { who:'林芳照', title:'芳華人生',                           url:'https://pei915730.github.io/StickerProject/fang-sticker-portfolio-C/site-c/',   thumb:'online-fang-c.jpg' },
+  { who:'芳華',   title:'芳華人生｜AI LINE 貼圖創作心得',     url:'https://pei915730.github.io/StickerProject/fanghua-b/',                         thumb:'online-fanghua-b.jpg' },
+];
+document.getElementById('list').innerHTML = LINKS.map(l => `
+  <li><a class="row" href="${l.url}" target="_blank" rel="noopener">
+    <img src="thumbs/${l.thumb}" alt="${l.title}網站首頁畫面" loading="lazy" width="800" height="500">
+    <div>
+      <span class="who">${l.who}</span>
+      <h2>${l.title}</h2>
+      <span class="url">${l.url}</span><span class="visit">欣賞完整作品 ↗</span>
+    </div>
+  </a></li>`).join('');
+</script>
+</body>
+</html>
