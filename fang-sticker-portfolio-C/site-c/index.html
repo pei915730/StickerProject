@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>芳華人生｜林芳照的 AI 貼圖創作集</title>
+<meta name="description" content="林芳照用 AI 把自己的照片變成 LINE 貼圖：從創作初心、歷程、學習成長到分享故事。">
+<meta property="og:title" content="芳華人生｜林芳照的 AI 貼圖創作集"><meta property="og:image" content="assets/hero.jpg">
+<style>
+:root{--bg:#f7f2e8;--fg:#2a1216;--mut:#7a6a63;--line:#ddd0b8;--ac:#7a1f2b;--gold:#b8923a;--card:#fffaf0}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1a0d10;--fg:#f3e9d8;--mut:#b09f95;--line:#44262b;--ac:#e0b455;--gold:#e0b455;--card:#26141a}}
+:root[data-theme=dark]{--bg:#1a0d10;--fg:#f3e9d8;--mut:#b09f95;--line:#44262b;--ac:#e0b455;--gold:#e0b455;--card:#26141a}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--fg);font:17px/1.95 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;transition:background .3s;overflow-x:hidden}
+h1,h2,.serif{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-weight:900;line-height:1.1}
+a{color:inherit}img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:auto;padding:0 24px}
+header{position:fixed;inset:0 0 auto;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--gold)}
+header .wrap{display:flex;align-items:center;gap:20px;height:56px}
+header b{font-family:"Noto Serif TC",serif;margin-right:auto;letter-spacing:.2em}
+nav{display:flex;gap:18px;font-size:14px}nav a{text-decoration:none;color:var(--mut)}nav a:hover{color:var(--ac)}
+button{font:inherit;cursor:pointer;color:inherit}
+#theme{background:none;border:1px solid var(--gold);border-radius:99px;width:34px;height:34px}
+section{padding:120px 0 40px;position:relative}
+.hero{min-height:100svh;display:grid;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative;z-index:2}
+.hero h1{font-size:clamp(80px,17vw,230px);letter-spacing:-.04em;line-height:.88}
+.hero h1 span{display:block}.hero h1 span+span{color:var(--ac);margin-left:.4em}
+.hero p{max-width:26em;color:var(--mut);margin-top:30px;border-left:2px solid var(--gold);padding-left:16px}
+.issue{font:600 12px/1 monospace;letter-spacing:.3em;color:var(--gold);margin-bottom:26px;display:block}
+.hero .ph{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:80% 30%;outline:1px solid var(--gold);outline-offset:12px;box-shadow:0 40px 70px -40px #000a}
+.fl{position:absolute;width:clamp(70px,11vw,150px);pointer-events:none;transition:transform .25s ease-out;filter:drop-shadow(0 8px 10px #0004);z-index:3}
+.lab{font:600 13px/1 monospace;letter-spacing:.25em;color:var(--gold)}
+h2{font-size:clamp(38px,6vw,84px);margin:14px 0 24px}
+.num{font:900 clamp(120px,22vw,300px)/.8 "Noto Serif TC",serif;color:transparent;-webkit-text-stroke:1px var(--gold);opacity:.7;position:absolute;right:20px;top:60px;pointer-events:none}
+.gl{height:1px;background:var(--gold);width:0;transition:width 1.4s ease;margin:26px 0}.gl.in{width:100%}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:26px 0}
+.chip{border:1px solid var(--gold);background:none;border-radius:0;padding:5px 16px;font-size:14px;letter-spacing:.1em}
+.chip[aria-pressed=true]{background:var(--ac);color:var(--bg);border-color:var(--ac)}
+#q{border:0;border-bottom:1px solid var(--gold);background:none;color:var(--fg);padding:8px 2px;font:inherit;font-size:15px;width:min(100%,320px);border-radius:0}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);padding:14px 10px 10px;text-align:center;cursor:zoom-in;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:nth-child(4n+2){transform:translateY(24px)}
+.card:hover,.card:focus-visible{transform:translateY(-8px) rotate(-1.2deg);box-shadow:0 20px 30px -20px #000a;border-color:var(--gold);outline:none}
+.card img{height:150px;margin:auto;object-fit:contain}
+.card small{display:block;color:var(--mut);font-size:12.5px;margin-top:8px}.card .tg{color:var(--gold)}
+.empty{color:var(--mut);padding:30px 0}
+.split{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start}
+.split p{max-width:32em}.lead{font-size:28px;margin-bottom:20px}
+.dc:first-letter{float:left;font:900 4.2em/.85 "Noto Serif TC",serif;color:var(--ac);padding:6px 10px 0 0}
+.tl{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 24px 30px;margin-top:40px}
+.tl>div{flex:0 0 min(260px,70vw);scroll-snap-align:start;border-top:2px solid var(--gold);padding-top:14px}
+.tl b{font:600 12px monospace;letter-spacing:.2em;color:var(--gold)}
+.tl img{height:180px;object-fit:contain;margin:12px auto;background:var(--card);width:100%;border:1px solid var(--line)}
+.tl p{font-size:15px;line-height:1.7;color:var(--mut)}
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:20px}
+.strip img{background:var(--card);border:1px solid var(--line);padding:4px;aspect-ratio:1;object-fit:contain}
+.play{aspect-ratio:9/16;max-width:300px;width:100%;background:#000;outline:1px solid var(--gold);outline-offset:10px}
+.story{position:relative}
+.vt{writing-mode:vertical-rl;font:900 clamp(30px,4vw,56px)/1.4 "Noto Serif TC",serif;color:var(--ac);position:absolute;right:-10px;top:0}
+.photo{position:relative;z-index:1;width:100%;max-height:680px;object-fit:cover;outline:1px solid var(--gold);outline-offset:12px;box-shadow:0 40px 70px -40px #000a}
+.quote{padding:140px 0;text-align:center;background:var(--ac);color:#f7f2e8;margin-top:100px}
+[data-theme=dark] .quote{color:#1a0d10}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .quote{color:#1a0d10}}
+.quote .lab{color:inherit;opacity:.8}
+.quote blockquote{font:900 clamp(26px,4.4vw,58px)/1.45 "Noto Serif TC",serif;max-width:19em;margin:auto}
+.quote blockquote:before{content:"“";display:block;font-size:2em;line-height:.6;opacity:.6}
+footer{padding:30px 0;color:var(--mut);font-size:14px;border-top:1px solid var(--gold)}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s}.rv.in{opacity:1;transform:none}
+#lb{position:fixed;inset:0;background:#000d;z-index:50;display:none;place-items:center;touch-action:pan-y}
+#lb.on{display:grid}#lb figure{text-align:center;color:#fff;padding:20px}
+#lb img{max-height:72vh;margin:auto;background:#f7f2e8;padding:16px;max-width:88vw;outline:1px solid var(--gold);outline-offset:8px}
+#lb button{position:absolute;background:#fff2;border:0;color:#fff;font-size:26px;width:46px;height:46px;border-radius:50%}
+#lb .x{top:16px;right:16px}#lb .p{left:14px;top:50%}#lb .n{right:14px;top:50%}
+@media(max-width:800px){nav{display:none}.split,.hero .wrap{grid-template-columns:1fr;gap:30px}.strip{grid-template-columns:repeat(4,1fr)}.card:nth-child(n){transform:none}.vt{display:none}.num{opacity:.35}.hero .ph{aspect-ratio:4/3}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}.gl{width:100%}}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+</style></head>
+<body>
+<header><div class="wrap"><b>芳華人生</b>
+<nav aria-label="主選單"><a href="#works">作品</a><a href="#why">WHY</a><a href="#how">HOW</a><a href="#growth">GROWTH</a><a href="#story">STORY</a></nav>
+<button id="theme" aria-label="切換明亮／深色模式">◐</button></div></header>
+<main>
+<div class="hero" id="top"><div class="wrap"><div>
+<span class="issue">VOL.01 · AI STICKER STORY</span>
+<h1 class="serif"><span>芳華</span><span>人生</span></h1>
+<p>讓自己的笑容，傳遞幸福與祝福。林芳照用 AI 把自己的照片，變成活潑可愛的 LINE 貼圖。</p></div>
+<img class="ph" src="assets/hero.jpg" alt="林芳照手持手機展示自己的 LINE 貼圖" fetchpriority="high"></div>
+<div id="float" aria-hidden="true"></div></div>
+
+<section id="works"><div class="wrap rv"><span class="lab">WORKS｜作品</span><h2>作品牆</h2><div class="gl"></div>
+<div class="tools" role="group" aria-label="標籤篩選" id="tags"></div>
+<input id="q" type="search" placeholder="搜尋貼圖文字…" aria-label="搜尋作品" style="margin:0 0 30px">
+<div class="wall" id="wall"></div><p class="empty" id="empty" hidden>找不到相符的作品。</p></div></section>
+
+<section id="why"><div class="wrap rv"><span class="num" data-px="-.05" aria-hidden="true">01</span><div class="split"><div><span class="lab">WHY</span><h2>創作初心</h2></div>
+<div><p class="serif lead">讓自己的笑容，傳遞幸福與祝福</p>
+<p class="dc">這次我想透過 AI，把自己的照片變成活潑可愛的 LINE 貼圖。特別選擇喜氣洋洋的造型，搭配「恭喜」、「愛你」、「謝謝」、「加油」等生活用語，希望讓每一張貼圖都充滿歡樂與溫暖，為親朋好友帶來好心情。</p></div></div></div></section>
+
+<section id="how"><div class="wrap rv"><span class="num" data-px="-.05" aria-hidden="true">02</span><span class="lab">HOW</span><h2>創作歷程</h2><div class="gl"></div>
+<div class="split"><div><p class="serif lead">從照片到貼圖，體驗 AI 的神奇魅力</p>
+<p>從靜態貼圖到動態貼圖，透過 AI 將自己變成可愛的卡通人物，還能加入愛心、彩帶與煙火等動畫效果。過程中不斷調整人物表情、動作與文字，讓作品更加生動。我最喜歡「恭喜」貼圖，繽紛的煙火與燦爛笑容，讓祝福變得更加熱鬧有趣。</p>
+<div class="strip" id="s1" aria-label="愛心手勢動態貼圖的影格"></div><div class="strip" id="s2" aria-label="恭喜彩帶動態貼圖的影格"></div></div>
+<div><video class="play" controls preload="none" poster="assets/poster.jpg" playsinline aria-label="LINE 動態貼圖編輯畫面"><source src="assets/demo.mp4" type="video/mp4"></video>
+<p style="color:var(--mut);font-size:14px;margin-top:22px">在 LINE 中檢視動態貼圖（13 秒）</p></div></div></div>
+<div class="tl" tabindex="0" aria-label="創作歷程時間軸（可左右捲動）">
+<div><b>STEP 1</b><img src="assets/s3_0.webp" alt="靜態貼圖：愛你" loading="lazy"><p>從靜態貼圖開始，把自己變成可愛的卡通人物。</p></div>
+<div><b>STEP 2</b><img src="assets/h_5.webp" alt="動態貼圖：愛心" loading="lazy"><p>加入愛心的動畫效果，做成動態貼圖。</p></div>
+<div><b>STEP 3</b><img src="assets/c_3.webp" alt="動態貼圖：彩帶" loading="lazy"><p>再加入彩帶與煙火，不斷調整表情、動作與文字。</p></div>
+<div><b>最愛</b><img src="assets/c_5.webp" alt="動態貼圖：恭喜" loading="lazy"><p>「恭喜」：繽紛的煙火與燦爛笑容，讓祝福更熱鬧。</p></div></div></section>
+
+<section id="growth"><div class="wrap rv"><span class="num" data-px="-.05" aria-hidden="true">03</span><div class="split"><div><span class="lab">GROWTH</span><h2>學習與成長</h2></div>
+<div><p class="serif lead">勇敢嘗試，發現自己的無限可能</p>
+<p class="dc">原本以為製作貼圖需要專業設計能力，沒想到透過 AI，也能創作出屬於自己的作品。這次不僅學會與 AI 溝通、調整圖片及製作動畫，更讓我體會到「活到老、學到老」的樂趣。只要願意學習，科技也能成為生活中的好幫手。</p></div></div></div></section>
+
+<section id="story"><div class="wrap rv story"><span class="num" data-px="-.05" aria-hidden="true">04</span><div class="split"><div><span class="lab">STORY</span><h2>分享與感動</h2>
+<p class="serif lead">小小貼圖，讓彼此的心更靠近</p>
+<p>當我把貼圖分享給家人朋友時，大家看到可愛的卡通版自己，都覺得新奇又開心。平常聊天時，傳送「愛你」、「辛苦了」、「加油」等貼圖，不僅增添趣味，也讓關心與祝福更容易表達。</p></div>
+<img class="photo" src="assets/story.jpg" alt="林芳照指向手機中的貼圖" loading="lazy"></div></div></section>
+
+<section class="quote"><div class="wrap rv"><span class="lab">最大的收穫</span><br><br>
+<blockquote>AI 讓我發現，創意不受年齡限制，學習可以帶來快樂，而一張小小的貼圖，也能傳遞滿滿的愛與幸福！</blockquote>
+<p style="opacity:.85;max-width:34em;margin:30px auto 0">這次最大的收穫，不只是學會 AI 創作，更是找回勇於嘗試的熱情，讓自己的人生增添更多色彩與歡笑。</p></div></section>
+</main>
+<footer><div class="wrap">© 林芳照｜芳華人生 AI 貼圖創作集 · 作品由 AI 協助創作</div></footer>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="作品放大檢視"><button class="x" aria-label="關閉">×</button><button class="p" aria-label="上一張">‹</button>
+<figure><img alt=""><figcaption></figcaption></figure><button class="n" aria-label="下一張">›</button></div>
+
+<script>
+// ===== 資料：新增作品只要在這裡加一筆 =====
+const A='assets/';
+const S3=['愛你','恭喜','謝謝','加油','沒問題','辛苦了','太棒了','超愛你'];
+const S9=['加油','路上小心','感動捏','辛苦了','沒問題','想你喔','謝謝您','等你喔','收到','哈囉','拜託','處理中','哈哈哈','超棒的','OK','怎麼了'];
+const tagOf=t=>{const g=[];if(/恭喜/.test(t))g.push('恭喜');if(/愛你|想你/.test(t))g.push('愛你');
+ if(/辛苦|加油|謝謝|路上|太棒|超棒|感動/.test(t))g.push('分享祝福');return g};
+const frames=(p)=>Array.from({length:12},(_,i)=>`${A}${p}_${i}.webp`);
+const WORKS=[
+ {title:'恭喜（彩帶煙火）',type:'動態貼圖',tags:['動態貼圖','恭喜'],frames:frames('c'),note:'最喜歡的一張'},
+ {title:'愛心手勢',type:'動態貼圖',tags:['動態貼圖','愛你'],frames:frames('h')},
+ ...S3.map((t,i)=>({title:t,type:'靜態貼圖',series:'紅金旗袍造型',tags:['靜態貼圖',...tagOf(t)],src:`${A}s3_${i}.webp`})),
+ ...S9.map((t,i)=>({title:t,type:'靜態貼圖',series:'日常問候造型',tags:['靜態貼圖',...tagOf(t)],src:`${A}s9_${i}.webp`}))
+];
+const TAGS=['全部','靜態貼圖','動態貼圖','恭喜','愛你','分享祝福'];
+// ===== 渲染 =====
+const $=s=>document.querySelector(s),wall=$('#wall');let cur='全部',list=[],idx=0,timer;
+const cover=w=>w.src||w.frames[5];
+function render(){const q=$('#q').value.trim();
+ list=WORKS.filter(w=>(cur==='全部'||w.tags.includes(cur))&&(!q||(w.title+w.tags.join('')).includes(q)));
+ wall.innerHTML='';list.forEach((w,i)=>{const b=document.createElement('button');b.className='card';b.setAttribute('aria-label','放大：'+w.title);
+  b.innerHTML=`<img src="${cover(w)}" alt="${w.title}貼圖" loading="lazy"><small><span class="tg">${w.type}</span>｜${w.title}</small>`;
+  b.onclick=()=>open(i);
+  if(w.frames){let t,k=0;const im=b.firstChild;b.onmouseenter=()=>{if(!matchMedia('(prefers-reduced-motion:reduce)').matches)t=setInterval(()=>im.src=w.frames[k=++k%12],140)};b.onmouseleave=()=>{clearInterval(t);im.src=cover(w)}}
+  wall.append(b)});$('#empty').hidden=list.length>0}
+$('#tags').innerHTML=TAGS.map(t=>`<button class="chip" aria-pressed="${t==='全部'}">${t}</button>`).join('');
+$('#tags').onclick=e=>{if(!e.target.matches('.chip'))return;cur=e.target.textContent;document.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c===e.target));render()};
+$('#q').oninput=render;render();
+['s1','s2'].forEach((id,n)=>$('#'+id).innerHTML=frames(n?'c':'h').filter((_,i)=>i%2==0).map(f=>`<img src="${f}" alt="" loading="lazy">`).join(''));
+// ===== 燈箱 =====
+const lb=$('#lb'),li=lb.querySelector('img'),cap=lb.querySelector('figcaption');
+function show(){clearInterval(timer);const w=list[idx];li.src=cover(w);li.alt=w.title+'貼圖';
+ cap.textContent=`${w.type}｜${w.title}${w.series?'｜'+w.series:''}${w.note?'｜'+w.note:''}　${idx+1} / ${list.length}`;
+ if(w.frames&&!matchMedia('(prefers-reduced-motion:reduce)').matches){let k=0;timer=setInterval(()=>li.src=w.frames[k=++k%12],140)}}
+function open(i){idx=i;lb.classList.add('on');show();lb.querySelector('.x').focus()}
+const go=d=>{idx=(idx+d+list.length)%list.length;show()},close=()=>{lb.classList.remove('on');clearInterval(timer)};
+lb.querySelector('.x').onclick=close;lb.querySelector('.p').onclick=()=>go(-1);lb.querySelector('.n').onclick=()=>go(1);
+lb.onclick=e=>{if(e.target===lb)close()};
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1)});
+let sx=0;lb.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+lb.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)go(d<0?1:-1)});
+// ===== 漂浮貼圖（Hero）=====
+const fl=$('#float'),pos=[[4,16],[84,12],[74,62],[10,70],[46,86]],fs=[`${A}s3_1.webp`,`${A}s3_0.webp`,`${A}s3_3.webp`,`${A}s9_0.webp`,`${A}s3_7.webp`];
+fs.forEach((s,i)=>{const m=document.createElement('img');m.src=s;m.alt='';m.className='fl';m.style.cssText=`left:${pos[i][0]}%;top:${pos[i][1]}%;rotate:${(i-2)*7}deg`;m.dataset.d=(i%2?1:-1)*(12+i*5);fl.append(m)});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+ addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;fl.querySelectorAll('.fl').forEach(m=>m.style.transform=`translate(${x*m.dataset.d*2}px,${y*m.dataset.d*2}px)`)});
+ addEventListener('scroll',()=>fl.style.transform=`translateY(${scrollY*.15}px)`,{passive:true})}
+// ===== 雜誌感：金線繪製、視差 =====
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)addEventListener('scroll',()=>document.querySelectorAll('[data-px]').forEach(el=>{const r=el.getBoundingClientRect();el.style.transform=`translateY(${(r.top-innerHeight/2)*el.dataset.px}px)`}),{passive:true});
+// ===== 淡入、主題 =====
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.gl').forEach(el=>io.observe(el));
+const th=$('#theme'),root=document.documentElement,saved=(()=>{try{return localStorage.theme}catch(e){}})();if(saved)root.dataset.theme=saved;
+th.onclick=()=>{const d=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=d?'light':'dark';try{localStorage.theme=root.dataset.theme}catch(e){}};
+</script>
+</body></html>
